@@ -25,7 +25,7 @@ typedef short bool;
 
 typedef int Mask[ MASKLEN ];
 
-void displayMask ( Mask m );
+void printMask ( Mask m );
 bool maskEqual ( Mask m, Mask n );
 bool maskSubset ( Mask m, Mask n );
 
@@ -37,7 +37,7 @@ int main ( int argc, char *argv[] )
     return EXIT_SUCCESS;
 }
 
-void displayMask ( Mask m )
+void printMask ( Mask m )
 {
     int i = 0;
     for ( i = 0; i < MASKLEN; ++i )
