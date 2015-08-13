@@ -17,9 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef short bool;
-#define false   0
-#define true    1
+#include "util.h"
 
 #define MASK_LENGTH 10
 typedef int Mask[ MASK_LENGTH ];
