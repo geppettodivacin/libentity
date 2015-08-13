@@ -25,6 +25,7 @@
 struct World
 {
     Mask mask[ ENTITY_COUNT ];
+    void * component[ 32 * MASK_LENGTH ];
 };
 typedef struct World World;
 

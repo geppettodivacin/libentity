@@ -33,6 +33,11 @@ World * newWorld ( void )
         maskCopy ( world->mask[ i ], COMPONENT_NONE );
     }
 
+    for ( i = 0; i < 32 * MASK_LENGTH; ++i )
+    {
+        world->component[ i ] = NULL;
+    }
+
     return world;
 }
 

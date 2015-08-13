@@ -19,7 +19,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// As seen on StackExchange comment http://stackoverflow.com/a/3065433.
+// As seen in reply to StackExchange comment http://stackoverflow.com/a/3065433.
 unsigned int highestSetBit ( int n )
 {
     int i = 0;
