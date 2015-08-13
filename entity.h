@@ -26,5 +26,6 @@ typedef unsigned int Entity;
 #include "world.h"
 
 Entity newEntity ( World * world );
+void destroyEntity ( Entity e, World * world );
 
 #endif

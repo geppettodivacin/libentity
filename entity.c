@@ -37,3 +37,8 @@ Entity newEntity ( World * world )
     fprintf ( stderr, "No more entities left.\n" );
     exit ( 1 );
 }
+
+void destroyEntity ( Entity e, World * world )
+{
+    maskCopy ( world->mask[ e ], COMPONENT_NONE );
+}
