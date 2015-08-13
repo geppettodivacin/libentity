@@ -20,12 +20,7 @@
 #include "util.h"
 #include "mask.h"
 #include "entity.h"
-
-struct World
-{
-    Mask mask[ ENTITY_COUNT ];
-};
-typedef struct World World;
+#include "component.h"
 
 int main ( int argc, char *argv[] )
 {
