@@ -40,13 +40,13 @@ unsigned int componentNumber ( Component c )
     return -1;
 }
 
-void registerComponent ( void * componentArray, Component c, size_t cSize
-                       , World * world )
+void registerComponent ( void (*defaultInit) ( void * ), Component c
+                       , size_t cSize, World * world )
 {
     unsigned int index = componentNumber ( c );
 
     assert ( world->component[ index ] == NULL );
-    world->component[ index ] = componentArray;
+    world->component[ index ] = initComponents ( cSize, defaultInit );
     world->componentSize[ index ] = cSize;
 }
 
