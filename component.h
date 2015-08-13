@@ -20,8 +20,12 @@
 #define COMPONENT_H
 
 #include "mask.h"
+#include "entity.h"
 
 typedef const Mask Component;
 extern Component COMPONENT_NONE;
+
+void addComponent ( Entity e, Component c, World * world );
+void removeComponent ( Entity e, Component c, World * world );
 
 #endif

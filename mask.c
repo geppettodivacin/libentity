@@ -42,6 +42,15 @@ void maskCopy ( Mask dest, const Mask src )
     }
 }
 
+void maskNot ( Mask dest, const Mask src )
+{
+    int i = 0;
+    for ( i = 0; i < MASK_LENGTH; ++i )
+    {
+        dest[ i ] = ~src[ i ];
+    }
+}
+
 bool maskEqual ( const Mask m, const Mask n )
 {
     int i = 0;
@@ -68,6 +77,15 @@ bool maskSubset ( const Mask m, const Mask n )
     }
 
     return true;
+}
+
+void maskAnd ( Mask result, const Mask m, const Mask n )
+{
+    int i = 0;
+    for ( i = 0; i < MASK_LENGTH; ++i )
+    {
+        result[ i ] = m[ i ] & n[ i ];
+    }
 }
 
 void maskOr ( Mask result, const Mask m, const Mask n )
