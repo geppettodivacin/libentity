@@ -102,3 +102,13 @@ bool hasComponent ( Entity e, Component c, World * world )
 
     return false;
 }
+
+void * getComponent ( Entity e, Component c, World * world )
+{
+    if ( !hasComponent ( e, c, world ) ) return NULL;
+
+    unsigned int index = componentNumber ( c );
+    void * ptr = world->component[ index ];
+    ptr += e * world->componentSize[ index ];
+    return ptr;
+}
