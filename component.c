@@ -62,9 +62,18 @@ void deregisterComponent ( Component c, World * world )
     }
 }
 
-void * initComponents ( size_t cSize )
+void * initComponents ( size_t cSize, void (*defaultInit) ( void * ) )
 {
-    return malloc ( ENTITY_COUNT * cSize );
+    void * components = malloc ( ENTITY_COUNT * cSize );
+
+    void * id = components;
+    int i = 0;
+    for ( i = 0; i < ENTITY_COUNT; ++i, id += cSize )
+    {
+        defaultInit ( id );
+    }
+
+    return components;
 }
 
 void addComponent ( Entity e, Component c, World * world )
