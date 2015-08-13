@@ -18,9 +18,7 @@
 #include <stdlib.h>
 
 #include "util.h"
-
-#define MASK_LENGTH 10
-typedef int Mask[ MASK_LENGTH ];
+#include "mask.h"
 
 typedef int Entity;
 
@@ -30,10 +28,6 @@ struct World
     Mask mask[ ENTITY_COUNT ];
 };
 typedef struct World World;
-
-void printMask ( Mask m );
-bool maskEqual ( Mask m, Mask n );
-bool maskSubset ( Mask m, Mask n );
 
 int main ( int argc, char *argv[] )
 {
