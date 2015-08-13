@@ -22,8 +22,9 @@ typedef short bool;
 #define true    1
 
 #define MASKLEN    10
-
 typedef int Mask[ MASKLEN ];
+
+typedef int Entity;
 
 void printMask ( Mask m );
 bool maskEqual ( Mask m, Mask n );
