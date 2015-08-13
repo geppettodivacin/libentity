@@ -21,6 +21,6 @@
 
 #include "mask.h"
 
-Mask COMPONENT_NONE = {0}
+Mask COMPONENT_NONE = {0};
 
 #endif
