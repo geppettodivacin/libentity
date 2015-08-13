@@ -28,4 +28,7 @@ struct World
 };
 typedef struct World World;
 
+World * newWorld ( void );
+void freeWorld ( World * world );
+
 #endif

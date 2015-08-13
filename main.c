@@ -25,13 +25,8 @@
 
 int main ( int argc, char *argv[] )
 {
-    Mask x = {0xFF, 0xA1, 0x01};
-    Mask y = {0xFF, 0xA1, 0x02};
-    Mask z = {0xFF, 0xA2, 0x10};
-
-    maskOrN ( z, 3, z, x, y );
-    printMask ( x );
-    printMask ( y );
-    printMask ( z );
+    World * world = newWorld();
+    printf ( "%d\n", newEntity ( world ) );
+    freeWorld ( world );
     return EXIT_SUCCESS;
 }

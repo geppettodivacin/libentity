@@ -1,12 +1,12 @@
 /*
  * =============================================================================
  *
- *       Filename:  entity.c
+ *       Filename:  world.c
  *
- *    Description:  Implementation for Entity functions.
+ *    Description:  Implementation for World functions.
  *
  *        Version:  1.0
- *        Created:  08/12/2015 11:31:57 PM
+ *        Created:  08/12/2015 11:52:43 PM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -17,23 +17,26 @@
  */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-#include "mask.h"
 #include "entity.h"
-#include "component.h"
 #include "world.h"
+#include "mask.h"
+#include "component.h"
 
-Entity newEntity ( World * world )
+World * newWorld ( void )
 {
-    Entity i = 0;
+    int i;
+    World * world = ( World * ) malloc ( sizeof ( *world ) );
+
     for ( i = 0; i < ENTITY_COUNT; ++i )
     {
-        if ( maskEqual ( world->mask[ i ], COMPONENT_NONE ) )
-        {
-            return i;
-        }
+        maskCopy ( world->mask[ i ], COMPONENT_NONE );
     }
-    fprintf ( stderr, "No more entities left.\n" );
-    exit ( 1 );
+
+    return world;
+}
+
+void freeWorld ( World * world )
+{
+    free ( world );
 }

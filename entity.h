@@ -23,4 +23,8 @@
 
 typedef unsigned int Entity;
 
+#include "world.h"
+
+Entity newEntity ( World * world );
+
 #endif
