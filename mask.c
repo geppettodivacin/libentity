@@ -61,15 +61,11 @@ bool maskSubset ( Mask m, Mask n )
     return true;
 }
 
-void maskCombine ( Mask * result, Mask m, Mask n )
+void maskCombine ( Mask result, Mask m, Mask n )
 {
     int i = 0;
     for ( i = 0; i < MASK_LENGTH; ++i )
     {
-        printf ( "%#08X | %#08X = %#08X\n", m[ i ], n[ i ], m[ i ] | n[ i ] );
-        *result[ i ] = m[ i ] | n[ i ];
-        printf ( "result[ %d ] = %#08X\n", i, *result[ i ] );
+        result[ i ] = m[ i ] | n[ i ];
     }
-
-    printMask ( *result );
 }
