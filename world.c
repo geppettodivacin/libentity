@@ -36,6 +36,7 @@ World * newWorld ( void )
     for ( i = 0; i < 32 * MASK_LENGTH; ++i )
     {
         world->component[ i ] = NULL;
+        world->componentSize[ i ] = 0;
     }
 
     return world;

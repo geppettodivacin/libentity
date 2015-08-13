@@ -40,12 +40,14 @@ unsigned int componentNumber ( Component c )
     return -1;
 }
 
-void registerComponent ( void * componentArray, Component c, World * world )
+void registerComponent ( void * componentArray, Component c, size_t cSize
+                       , World * world )
 {
     unsigned int index = componentNumber ( c );
 
     assert ( world->component[ index ] == NULL );
     world->component[ index ] = componentArray;
+    world->componentSize[ index ] = cSize;
 }
 
 void deregisterComponent ( Component c, World * world )
@@ -56,6 +58,7 @@ void deregisterComponent ( Component c, World * world )
     {
         free ( world->component[ index ] );
         world->component[ index ] = NULL;
+        world->componentSize[ index ] = 0;
     }
 }
 

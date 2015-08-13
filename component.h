@@ -27,7 +27,8 @@ extern Component COMPONENT_NONE;
 extern Component COMPONENT_ONE;
 
 unsigned int componentNumber ( Component c );
-void registerComponent ( void * componentArray, Component c, World * world );
+void registerComponent ( void * componentArray, Component c, size_t cSize
+                       , World * world );
 void deregisterComponent ( Component c, World * world );
 void * initComponents ( size_t cSize );
 void addComponent ( Entity e, Component c, World * world );
