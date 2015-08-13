@@ -24,6 +24,7 @@
 
 typedef const Mask Component;
 extern Component COMPONENT_NONE;
+extern Component COMPONENT_ONE;
 
 void addComponent ( Entity e, Component c, World * world );
 void removeComponent ( Entity e, Component c, World * world );

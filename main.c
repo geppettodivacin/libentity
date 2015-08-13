@@ -26,7 +26,13 @@
 int main ( int argc, char *argv[] )
 {
     World * world = newWorld();
-    printf ( "%d\n", newEntity ( world ) );
+    Entity e = newEntity ( world );
+    addComponent ( e, COMPONENT_ONE, world );
+    printMask ( world->mask[ e ] );
+    printf ( "Next entity: %d\n", newEntity ( world ) );
+    removeComponent ( e, COMPONENT_ONE, world );
+    printMask ( world->mask[ e ] );
+    printf ( "Next entity: %d\n", newEntity ( world ) );
     freeWorld ( world );
     return EXIT_SUCCESS;
 }

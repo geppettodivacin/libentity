@@ -24,6 +24,7 @@
 #include "mask.h"
 
 Component COMPONENT_NONE = {0};
+Component COMPONENT_ONE = {1, 0};
 
 void addComponent ( Entity e, Component c, World * world )
 {
