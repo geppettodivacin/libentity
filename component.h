@@ -21,6 +21,7 @@
 
 #include "mask.h"
 
-Mask COMPONENT_NONE = {0};
+typedef const Mask Component;
+Component COMPONENT_NONE = {0};
 
 #endif
