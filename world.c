@@ -44,5 +44,11 @@ World * newWorld ( void )
 
 void freeWorld ( World * world )
 {
+    int i = 0;
+    for ( i = 0; i < 32 * MASK_LENGTH; ++i )
+    {
+        if ( world->component[ i ] ) free ( world->component[ i ] );
+    }
+
     free ( world );
 }
