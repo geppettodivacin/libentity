@@ -33,6 +33,15 @@ void printMask ( const Mask m )
     printf ( "\n" );
 }
 
+void maskCopy ( Mask dest, const Mask src )
+{
+    int i = 0;
+    for ( i = 0; i < MASK_LENGTH; ++i )
+    {
+        dest[ i ] = src[ i ];
+    }
+}
+
 bool maskEqual ( const Mask m, const Mask n )
 {
     int i = 0;
@@ -89,10 +98,7 @@ void maskOrN ( Mask result, int maskCount, ... )
 
     int * mask = va_arg ( maskList, int * );
 
-    for ( i = 0; i < MASK_LENGTH; ++i )
-    {
-        result[ i ] = mask[ i ];
-    }
+    maskCopy ( result, mask );
 
     for ( i = 1; i < maskCount; ++i )
     {

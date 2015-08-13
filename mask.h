@@ -25,6 +25,7 @@
 typedef int Mask[ MASK_LENGTH ];
 
 void printMask ( const Mask m );
+void maskCopy ( Mask dest, const Mask src );
 bool maskEqual ( const Mask m, const Mask n );
 bool maskSubset ( const Mask m, const Mask n );
 void maskOr ( Mask result, const Mask m, const Mask n );
