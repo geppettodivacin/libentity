@@ -25,6 +25,7 @@ typedef int Mask[ MASK_LENGTH ];
 void printMask ( Mask m );
 bool maskEqual ( Mask m, Mask n );
 bool maskSubset ( Mask m, Mask n );
+void maskCombineN ( Mask result, int maskCount, ... );
 void maskCombine ( Mask result, Mask m, Mask n );
 
 #endif

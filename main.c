@@ -27,9 +27,9 @@ int main ( int argc, char *argv[] )
 {
     Mask x = {0xFF, 0xA1, 0x01};
     Mask y = {0xFF, 0xA1, 0x02};
-    Mask z = {0};
+    Mask z = {0xFF, 0xA2, 0x10};
 
-    maskCombine ( z, x, y );
+    maskCombineN ( z, 3, z, x, y );
     printMask ( x );
     printMask ( y );
     printMask ( z );

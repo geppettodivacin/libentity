@@ -61,6 +61,39 @@ bool maskSubset ( Mask m, Mask n )
     return true;
 }
 
+void maskCombineN ( Mask result, int maskCount, ... )
+{
+    int i;
+
+    if ( maskCount < 1 )
+    {
+        for ( i = 0; i < MASK_LENGTH; ++i )
+        {
+            result[ i ] = 0;
+        }
+
+        return;
+    }
+
+    va_list maskList;
+    va_start ( maskList, maskCount );
+
+    int * mask = va_arg ( maskList, int * );
+
+    for ( i = 0; i < MASK_LENGTH; ++i )
+    {
+        result[ i ] = mask[ i ];
+    }
+
+    for ( i = 1; i < maskCount; ++i )
+    {
+        mask = va_arg ( maskList, int * );
+        maskCombine ( result, result, mask );
+    }
+
+    va_end ( maskList );
+}
+
 void maskCombine ( Mask result, Mask m, Mask n )
 {
     int i = 0;
