@@ -21,10 +21,17 @@ typedef short bool;
 #define false   0
 #define true    1
 
-#define MASKLEN    10
-typedef int Mask[ MASKLEN ];
+#define MASK_LENGTH 10
+typedef int Mask[ MASK_LENGTH ];
 
 typedef int Entity;
+
+#define ENTITY_COUNT    100
+struct World
+{
+    Mask mask[ ENTITY_COUNT ];
+};
+typedef struct World World;
 
 void printMask ( Mask m );
 bool maskEqual ( Mask m, Mask n );
@@ -41,9 +48,9 @@ int main ( int argc, char *argv[] )
 void printMask ( Mask m )
 {
     int i = 0;
-    for ( i = 0; i < MASKLEN; ++i )
+    for ( i = 0; i < MASK_LENGTH; ++i )
     {
-        printf ( "%#04X%s", m[ i ], ( i < MASKLEN - 1 ) ? " " : ""  );
+        printf ( "%#04X%s", m[ i ], ( i < MASK_LENGTH - 1 ) ? " " : ""  );
     }
     printf ( "\n" );
 }
@@ -52,7 +59,7 @@ bool maskEqual ( Mask m, Mask n )
 {
     int i = 0;
 
-    for ( i = 0; i < MASKLEN; ++i )
+    for ( i = 0; i < MASK_LENGTH; ++i )
     {
         if ( ( m[ i ] & n[ i ] ) != m[ i ] || ( m[ i ] & n[ i ] ) != n[ i ] )
             return false;
@@ -65,7 +72,7 @@ bool maskSubset ( Mask m, Mask n )
 {
     int i = 0;
 
-    for ( i = 0; i < MASKLEN; ++i )
+    for ( i = 0; i < MASK_LENGTH; ++i )
     {
         if ( ( m[ i ] & n[ i ] ) != m[ i ] )
         {
