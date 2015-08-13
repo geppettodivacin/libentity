@@ -19,13 +19,15 @@
 #ifndef MASK_H
 #define MASK_H
 
+#include "util.h"
+
 #define MASK_LENGTH 10
 typedef int Mask[ MASK_LENGTH ];
 
-void printMask ( Mask m );
-bool maskEqual ( Mask m, Mask n );
-bool maskSubset ( Mask m, Mask n );
-void maskOr ( Mask result, Mask m, Mask n );
+void printMask ( const Mask m );
+bool maskEqual ( const Mask m, const Mask n );
+bool maskSubset ( const Mask m, const Mask n );
+void maskOr ( Mask result, const Mask m, const Mask n );
 void maskOrN ( Mask result, int maskCount, ... );
 
 #endif

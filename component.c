@@ -1,12 +1,12 @@
 /*
  * =============================================================================
  *
- *       Filename:  component.h
+ *       Filename:  component.c
  *
- *    Description:  Header for Component stuff.
+ *    Description:  Implementation for Components.
  *
  *        Version:  1.0
- *        Created:  08/12/2015 10:08:41 PM
+ *        Created:  08/12/2015 11:45:00 PM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -16,12 +16,8 @@
  * =============================================================================
  */
 
-#ifndef COMPONENT_H
-#define COMPONENT_H
+#include <stdlib.h>
 
-#include "mask.h"
+#include "component.h"
 
-typedef const Mask Component;
-extern Component COMPONENT_NONE;
-
-#endif
+Component COMPONENT_NONE = {0};

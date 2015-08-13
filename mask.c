@@ -23,7 +23,7 @@
 #include "util.h"
 #include "mask.h"
 
-void printMask ( Mask m )
+void printMask ( const Mask m )
 {
     int i = 0;
     for ( i = 0; i < MASK_LENGTH; ++i )
@@ -33,7 +33,7 @@ void printMask ( Mask m )
     printf ( "\n" );
 }
 
-bool maskEqual ( Mask m, Mask n )
+bool maskEqual ( const Mask m, const Mask n )
 {
     int i = 0;
 
@@ -46,7 +46,7 @@ bool maskEqual ( Mask m, Mask n )
     return true;
 }
 
-bool maskSubset ( Mask m, Mask n )
+bool maskSubset ( const Mask m, const Mask n )
 {
     int i = 0;
 
@@ -61,7 +61,7 @@ bool maskSubset ( Mask m, Mask n )
     return true;
 }
 
-void maskOr ( Mask result, Mask m, Mask n )
+void maskOr ( Mask result, const Mask m, const Mask n )
 {
     int i = 0;
     for ( i = 0; i < MASK_LENGTH; ++i )
