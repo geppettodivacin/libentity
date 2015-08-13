@@ -26,7 +26,13 @@
 int main ( int argc, char *argv[] )
 {
     Mask x = {0xFF, 0xA1, 0x01};
-    Mask y = {0xFF, 0xA1, 0x03};
-    printf ( "%hd\n", maskSubset ( y, x ) );
+    Mask y = {0xFF, 0xA1, 0x02};
+    Mask z = {0};
+
+    maskCombine ( &z, x, y );
+    printMask ( x );
+    printMask ( y );
+    printMask ( z );
+    printf ( "z[ 2 ] = %#08X\n", z[ 2 ] );
     return EXIT_SUCCESS;
 }
