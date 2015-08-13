@@ -91,3 +91,14 @@ void removeComponent ( Entity e, Component c, World * world )
     maskNot ( notC, c );
     maskAnd ( world->mask[ e ], world->mask[ e ], notC );
 }
+
+bool hasComponent ( Entity e, Component c, World * world )
+{
+    Mask result;
+    Mask * entityMask = &world->mask[ e ];
+
+    maskAnd ( result, c, *entityMask );
+    if ( maskEqual ( c, result ) ) return true;
+
+    return false;
+}

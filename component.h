@@ -33,5 +33,6 @@ void deregisterComponent ( Component c, World * world );
 void * initComponents ( size_t cSize, void (*defualtInit) ( void * ) );
 void addComponent ( Entity e, Component c, World * world );
 void removeComponent ( Entity e, Component c, World * world );
+bool hasComponent ( Entity e, Component c, World * world );
 
 #endif
