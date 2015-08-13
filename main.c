@@ -19,10 +19,8 @@
 
 #include "util.h"
 #include "mask.h"
+#include "entity.h"
 
-typedef int Entity;
-
-#define ENTITY_COUNT    100
 struct World
 {
     Mask mask[ ENTITY_COUNT ];
