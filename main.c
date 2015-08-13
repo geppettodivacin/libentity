@@ -21,6 +21,7 @@
 #include "mask.h"
 #include "entity.h"
 #include "component.h"
+#include "world.h"
 
 int main ( int argc, char *argv[] )
 {
