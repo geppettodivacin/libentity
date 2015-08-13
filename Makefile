@@ -1,6 +1,6 @@
 CC=gcc
 EXECUTABLE=main
-OBJECTS=mask.o entity.o component.o world.o
+OBJECTS=mask.o entity.o component.o world.o util.o
 
 main: $(OBJECTS) main.c
 	$(CC) -Wall -g -o $(EXECUTABLE) $(OBJECTS) main.c
@@ -16,6 +16,9 @@ component.o: component.c
 
 world.o: world.c
 	$(CC) -c -g -Wall world.c
+
+util.o: util.c
+	$(CC) -c -g -Wall util.c
 
 run: main
 	./$(EXECUTABLE)

@@ -1,12 +1,12 @@
 /*
  * =============================================================================
  *
- *       Filename:  util.h
+ *       Filename:  util.c
  *
- *    Description:  Simple utilities for use throughout program.
+ *    Description:  Implementations of utils.
  *
  *        Version:  1.0
- *        Created:  08/12/2015 08:44:48 PM
+ *        Created:  08/13/2015 12:45:21 PM
  *       Revision:  none
  *       Compiler:  gcc
  *
@@ -16,13 +16,13 @@
  * =============================================================================
  */
 
-#ifndef UTIL_H
-#define UTIL_H
+#include <stdlib.h>
+#include <stdio.h>
 
-typedef short bool;
-#define false   0
-#define true    1
-
-unsigned int highestSetBit ( int i );
-
-#endif
+// As seen on StackExchange comment http://stackoverflow.com/a/3065433.
+unsigned int highestSetBit ( int n )
+{
+    int i = 0;
+    while ( n >>= 1 ) ++i;
+    return i;
+}
