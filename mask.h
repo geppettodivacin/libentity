@@ -30,6 +30,7 @@ void maskNot ( Mask dest, const Mask src );
 bool maskEqual ( const Mask m, const Mask n );
 bool maskSubset ( const Mask m, const Mask n );
 void maskAnd ( Mask result, const Mask m, const Mask n );
+void maskNand ( Mask result, const Mask m, const Mask n );
 void maskOr ( Mask result, const Mask m, const Mask n );
 void maskOrN ( Mask result, int maskCount, ... );
 

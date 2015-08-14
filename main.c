@@ -18,7 +18,6 @@
 #include <stdlib.h>
 
 #include "util.h"
-#include "mask.h"
 #include "entity.h"
 #include "component.h"
 #include "world.h"
@@ -39,16 +38,17 @@ void oneInit ( void * component )
 
 void systemOne ( World * world )
 {
-    static Mask sysMask;
-    if ( maskEqual ( sysMask, COMPONENT_NONE ) )
+    static Aspect aspect;
+    if ( aspectIsEmpty ( aspect ) )
     {
-        maskOr ( sysMask, COMPONENT_NONE, COMPONENT_ONE );
+        clearAspect ( aspect );
+        setInAspect ( aspect, COMPONENT_ONE );
     }
 
     Entity e = 0;
     for ( e = 0; e < ENTITY_COUNT; ++e )
     {
-        if ( validInSystem ( sysMask, e, world ) )
+        if ( validInSystem ( aspect, e, world ) )
         {
             One * one = ( One * ) getComponent ( e, COMPONENT_ONE, world );
             printf ( "Entity %u has a One with x = %d.\n", e, one->x );

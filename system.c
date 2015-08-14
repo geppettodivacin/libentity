@@ -22,8 +22,29 @@
 #include "mask.h"
 #include "entity.h"
 #include "component.h"
+#include "system.h"
 
-bool validInSystem ( const Mask sysMask, Entity e, World * world )
+bool validInSystem ( const Aspect aspect, Entity e, World * world )
 {
-    return maskSubset ( sysMask, world->mask[ e ] );
+    return maskSubset ( aspect, world->mask[ e ] );
+}
+
+void setInAspect ( Aspect aspect, Component c )
+{
+    maskOr ( aspect, aspect, c );
+}
+
+void removeFromAspect ( Aspect aspect, Component c )
+{
+    maskNand ( aspect, aspect, c );
+}
+
+void clearAspect ( Aspect aspect )
+{
+    maskCopy ( aspect, COMPONENT_NONE );
+}
+
+bool aspectIsEmpty ( Aspect aspect )
+{
+    return maskEqual ( aspect, COMPONENT_NONE );
 }

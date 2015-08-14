@@ -19,6 +19,16 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H
 
-bool validInSystem ( const Mask sysMask, Entity e, World * world );
+#include "mask.h"
+#include "component.h"
+#include "util.h"
+
+typedef Mask Aspect;
+
+bool validInSystem ( const Aspect aspect, Entity e, World * world );
+void setInAspect ( Aspect aspect, Component c );
+void removeFromAspect ( Aspect aspect, Component c );
+void clearAspect ( Aspect aspect );
+bool aspectIsEmpty ( Aspect aspect );
 
 #endif

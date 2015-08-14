@@ -88,6 +88,15 @@ void maskAnd ( Mask result, const Mask m, const Mask n )
     }
 }
 
+void maskNand ( Mask result, const Mask m, const Mask n )
+{
+    int i = 0;
+    for ( i = 0; i < MASK_LENGTH; ++i )
+    {
+        result[ i ] = m[ i ] & ~n[ i ];
+    }
+}
+
 void maskOr ( Mask result, const Mask m, const Mask n )
 {
     int i = 0;
