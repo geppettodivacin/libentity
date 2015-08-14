@@ -22,6 +22,7 @@
 #include "entity.h"
 #include "component.h"
 #include "world.h"
+#include "system.h"
 
 
 struct One
@@ -36,6 +37,25 @@ void oneInit ( void * component )
     one->x = 10;
 }
 
+void systemOne ( World * world )
+{
+    static Mask sysMask;
+    if ( maskEqual ( sysMask, COMPONENT_NONE ) )
+    {
+        maskOr ( sysMask, COMPONENT_NONE, COMPONENT_ONE );
+    }
+
+    Entity e = 0;
+    for ( e = 0; e < ENTITY_COUNT; ++e )
+    {
+        if ( validInSystem ( sysMask, e, world ) )
+        {
+            One * one = ( One * ) getComponent ( e, COMPONENT_ONE, world );
+            printf ( "Entity %u has a One with x = %d.\n", e, one->x );
+        }
+    }
+}
+
 int main ( int argc, char *argv[] )
 {
     World * world = newWorld();
@@ -43,29 +63,17 @@ int main ( int argc, char *argv[] )
 
     Entity e = newEntity ( world );
 
-    printf ( "Entity %d %s COMPONENT_ONE\n", e
-           , hasComponent ( e, COMPONENT_ONE, world )
-           ? "has" : "does not have" );
     addComponent ( e, COMPONENT_ONE, world );
-    printf ( "Entity %d %s COMPONENT_ONE\n", e
-           , hasComponent ( e, COMPONENT_ONE, world )
-           ? "has" : "does not have" );
-    printf ( "Entity %d %s COMPONENT_ONE\n", 1
-           , hasComponent ( 1, COMPONENT_ONE, world )
-           ? "has" : "does not have" );
+    addComponent ( 5, COMPONENT_ONE, world );
+    addComponent ( 97, COMPONENT_ONE, world );
+    addComponent ( 99, COMPONENT_ONE, world );
 
-    One * one = ( One * ) getComponent ( e, COMPONENT_ONE, world );
-    if ( !one )
-    {
-        printf ( "Entity does not have the requested component.\n" );
-        freeWorld ( world );
-        return EXIT_FAILURE;
-    }
+    ( ( One * ) getComponent ( e, COMPONENT_ONE, world ) )->x = 1;
+    ( ( One * ) getComponent ( 5, COMPONENT_ONE, world ) )->x = 2;
+    ( ( One * ) getComponent ( 97, COMPONENT_ONE, world ) )->x = 3;
+    ( ( One * ) getComponent ( 99, COMPONENT_ONE, world ) )->x = 4;
 
-    one->x = 5;
-
-    One * two = ( One * ) getComponent ( e, COMPONENT_ONE, world );
-    printf ( "This entity has COMPONENT_ONE with an x of %d.\n", two->x );
+    systemOne ( world );
 
     freeWorld ( world );
     return EXIT_SUCCESS;
