@@ -92,9 +92,7 @@ void removeComponent ( Entity e, Component c, World * world )
 {
     assert ( e < ENTITY_COUNT );
 
-    Mask notC;
-    maskNot ( notC, c );
-    maskAnd ( world->mask[ e ], world->mask[ e ], notC );
+    maskNand ( world->mask[ e ], world->mask[ e ], c );
 }
 
 bool hasComponent ( Entity e, Component c, World * world )
