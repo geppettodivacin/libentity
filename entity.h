@@ -19,7 +19,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#define ENTITY_COUNT    100
+#define ENTITY_COUNT    1048576
 
 typedef unsigned int Entity;
 
