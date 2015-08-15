@@ -54,6 +54,11 @@ void deregisterComponent ( Component c, World * world )
 {
     unsigned int index = componentNumber ( c );
 
+    Entity e = 0;
+    for ( e = 0; e < ENTITY_COUNT; ++e )
+    {
+        removeComponent ( e, c, world );
+    }
     if ( world->component[ index ] )
     {
         free ( world->component[ index ] );
