@@ -73,6 +73,7 @@ int main ( int argc, char *argv[] )
     ( ( One * ) getComponent ( 97, COMPONENT_ONE, world ) )->x = 3;
     ( ( One * ) getComponent ( 99, COMPONENT_ONE, world ) )->x = 4;
 
+    shrinkWorld ( world );
     systemOne ( world );
 
     freeWorld ( world );

@@ -17,6 +17,8 @@
  */
 
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 #include "entity.h"
 #include "world.h"
@@ -51,4 +53,40 @@ void freeWorld ( World * world )
     }
 
     free ( world );
+}
+
+void shrinkWorld ( World * world )
+{
+    Entity e = 0;
+    Entity f = ENTITY_COUNT - 1;
+    for ( e = 0; e < f; ++e )
+    {
+        if ( maskEqual ( world->mask[ e ], COMPONENT_NONE ) )
+        {
+            for ( ; f > e; --f )
+            {
+                if ( !maskEqual ( world->mask[ f ], COMPONENT_NONE ) )
+                {
+                    printf ( "Moving %d to %d.\n", f, e );
+                    maskCopy ( world->mask[ e ], world->mask[ f ] );
+                    maskCopy ( world->mask[ f ], COMPONENT_NONE );
+
+                    unsigned int i = 0;
+                    for ( i = 0; i < COMPONENT_COUNT; ++i )
+                    {
+                        if ( world->component[ i ] != NULL )
+                        {
+                            unsigned int cSize = world->componentSize[ i ];
+                            void * c1 = world->component[ i ] + e * cSize;
+                            void * c2 = world->component[ i ] + f * cSize;
+
+                            memcpy ( c1, c2, cSize );
+                        }
+                    }
+
+                    break;
+                }
+            }
+        }
+    }
 }

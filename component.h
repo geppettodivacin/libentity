@@ -19,6 +19,7 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
+#include "world.h"
 #include "mask.h"
 #include "entity.h"
 
@@ -30,7 +31,7 @@ unsigned int componentNumber ( Component c );
 void registerComponent ( void (*defaultInit) ( void * ), Component c
                        , size_t cSize, World * world );
 void deregisterComponent ( Component c, World * world );
-void * initComponents ( size_t cSize, void (*defualtInit) ( void * ) );
+void * initComponents ( size_t cSize, void (*defaultInit) ( void * ) );
 void addComponent ( Entity e, Component c, World * world );
 void removeComponent ( Entity e, Component c, World * world );
 bool hasComponent ( Entity e, Component c, World * world );

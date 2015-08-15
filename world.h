@@ -19,18 +19,21 @@
 #ifndef WORLD_H
 #define WORLD_H
 
-#include "entity.h"
 #include "mask.h"
+
+#define ENTITY_COUNT    1048576
+#define COMPONENT_COUNT (32 * MASK_LENGTH)
 
 struct World
 {
     Mask mask[ ENTITY_COUNT ];
-    size_t componentSize[ 32 * MASK_LENGTH ];
-    void * component[ 32 * MASK_LENGTH ];
+    size_t componentSize[ COMPONENT_COUNT ];
+    void * component[ COMPONENT_COUNT ];
 };
 typedef struct World World;
 
 World * newWorld ( void );
 void freeWorld ( World * world );
+void shrinkWorld ( World * world );
 
 #endif
