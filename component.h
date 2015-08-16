@@ -25,7 +25,6 @@
 
 typedef const Mask Component;
 extern Component COMPONENT_NONE;
-extern Component COMPONENT_ONE;
 
 unsigned int componentNumber ( Component c );
 void registerComponent ( void (*defaultInit) ( void * ), Component c

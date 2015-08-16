@@ -25,7 +25,6 @@
 #include "util.h"
 
 Component COMPONENT_NONE = {0};
-Component COMPONENT_ONE = {1, 0};
 
 unsigned int componentNumber ( Component c )
 {
