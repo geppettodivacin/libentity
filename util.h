@@ -19,10 +19,12 @@
 #ifndef UTIL_H
 #define UTIL_H
 
+// Define a boolean value, because C doesn't have that capability.
 typedef short bool;
 #define false   0
 #define true    1
 
+// Find the highest bit set in an int. Returns 0 if i is zero or one.
 unsigned int highestSetBit ( int i );
 
 #endif

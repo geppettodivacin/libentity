@@ -25,6 +25,6 @@
 unsigned int highestSetBit ( int n )
 {
     int i = 0;
-    while ( n >>= 1 ) ++i;
+    while ( n >>= 1 && i < 31 ) ++i;
     return i;
 }
