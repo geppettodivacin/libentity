@@ -25,10 +25,14 @@
 #include "mask.h"
 #include "component.h"
 
+unsigned int ENTITY_COUNT = 128;
+
 World * newWorld ( void )
 {
     int i;
     World * world = ( World * ) malloc ( sizeof ( *world ) );
+
+    world->mask = ( Mask * ) malloc ( ENTITY_COUNT * sizeof ( *world->mask ) );
 
     for ( i = 0; i < ENTITY_COUNT; ++i )
     {
@@ -48,6 +52,8 @@ World * newWorld ( void )
 
 void freeWorld ( World * world )
 {
+    free ( world->mask );
+
     int i = 0;
     for ( i = 0; i < 32 * MASK_LENGTH; ++i )
     {
