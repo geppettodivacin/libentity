@@ -98,3 +98,21 @@ void shrinkWorld ( World * world )
     }
     world->nextEntity = f;
 }
+
+void growWorld ( World * world )
+{
+    ENTITY_COUNT *= 2;
+    world->mask = realloc ( world->mask
+                          , ENTITY_COUNT * sizeof ( *world->mask ) );
+
+    int i = 0;
+    for ( i = 0; i < COMPONENT_COUNT; ++i )
+    {
+        if ( world->component[ i ] != NULL )
+        {
+            size_t cSize = world->componentSize[ i ];
+            world->component[ i ] = realloc ( world->component[ i ]
+                                            , ENTITY_COUNT * cSize );
+        }
+    }
+}

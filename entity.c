@@ -28,8 +28,7 @@ Entity newEntity ( World * world )
 {
     if ( world->nextEntity == ENTITY_COUNT )
     {
-        fprintf ( stderr, "No more entities left.\n" );
-        exit ( 1 );
+        growWorld ( world );
     }
 
     return world->nextEntity++;

@@ -74,8 +74,16 @@ int main ( int argc, char *argv[] )
     ( ( One * ) getComponent ( 99, COMPONENT_ONE, world ) )->x = 4;
 
     shrinkWorld ( world );
-    systemOne ( world );
     printf ( "world->nextEntity = %u\n", world->nextEntity );
+
+    int i = 0;
+    for ( i = 0; i < 200; ++i )
+    {
+        e = newEntity ( world );
+        addComponent ( e, COMPONENT_ONE, world );
+        ( ( One * ) getComponent ( e, COMPONENT_ONE, world ) )->x = 1;
+    }
+    systemOne ( world );
 
     freeWorld ( world );
     return EXIT_SUCCESS;

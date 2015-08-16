@@ -36,5 +36,6 @@ typedef struct World World;
 World * newWorld ( void );
 void freeWorld ( World * world );
 void shrinkWorld ( World * world );
+void growWorld ( World * world );
 
 #endif
