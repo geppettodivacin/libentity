@@ -20,8 +20,8 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "entity.h"
 #include "world.h"
+#include "entity.h"
 #include "mask.h"
 #include "component.h"
 

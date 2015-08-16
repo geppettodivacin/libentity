@@ -18,11 +18,11 @@
 
 #include <stdlib.h>
 
+#include "system.h"
 #include "util.h"
 #include "mask.h"
 #include "entity.h"
 #include "component.h"
-#include "system.h"
 
 bool validInSystem ( const Aspect aspect, Entity e, World * world )
 {

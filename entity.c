@@ -19,8 +19,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "mask.h"
 #include "entity.h"
+#include "mask.h"
 #include "component.h"
 #include "world.h"
 

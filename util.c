@@ -19,6 +19,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+#include "util.h"
+
 // As seen in reply to StackExchange comment http://stackoverflow.com/a/3065433.
 unsigned int highestSetBit ( int n )
 {

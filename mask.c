@@ -20,8 +20,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-#include "util.h"
 #include "mask.h"
+#include "util.h"
 
 void printMask ( const Mask m )
 {
