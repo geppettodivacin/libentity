@@ -29,6 +29,7 @@ struct World
     Mask mask[ ENTITY_COUNT ];
     size_t componentSize[ COMPONENT_COUNT ];
     void * component[ COMPONENT_COUNT ];
+    unsigned int nextEntity;
 };
 typedef struct World World;
 

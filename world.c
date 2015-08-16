@@ -41,6 +41,8 @@ World * newWorld ( void )
         world->componentSize[ i ] = 0;
     }
 
+    world->nextEntity = 0;
+
     return world;
 }
 
@@ -67,7 +69,6 @@ void shrinkWorld ( World * world )
             {
                 if ( !maskEqual ( world->mask[ f ], COMPONENT_NONE ) )
                 {
-                    printf ( "Moving %d to %d.\n", f, e );
                     maskCopy ( world->mask[ e ], world->mask[ f ] );
                     maskCopy ( world->mask[ f ], COMPONENT_NONE );
 
@@ -89,4 +90,5 @@ void shrinkWorld ( World * world )
             }
         }
     }
+    world->nextEntity = f;
 }

@@ -75,6 +75,7 @@ int main ( int argc, char *argv[] )
 
     shrinkWorld ( world );
     systemOne ( world );
+    printf ( "world->nextEntity = %u\n", world->nextEntity );
 
     freeWorld ( world );
     return EXIT_SUCCESS;

@@ -26,16 +26,13 @@
 
 Entity newEntity ( World * world )
 {
-    Entity i = 0;
-    for ( i = 0; i < ENTITY_COUNT; ++i )
+    if ( world->nextEntity == ENTITY_COUNT )
     {
-        if ( maskEqual ( world->mask[ i ], COMPONENT_NONE ) )
-        {
-            return i;
-        }
+        fprintf ( stderr, "No more entities left.\n" );
+        exit ( 1 );
     }
-    fprintf ( stderr, "No more entities left.\n" );
-    exit ( 1 );
+
+    return world->nextEntity++;
 }
 
 void destroyEntity ( Entity e, World * world )
