@@ -24,16 +24,21 @@
 #include "component.h"
 #include "world.h"
 
+// Gives the next valid, empty Entity. If there are not enough entities left,
+// the world will grow.
 Entity newEntity ( World * world )
 {
+    // If there is too little space for a new Entity...
     if ( world->nextEntity == ENTITY_COUNT )
     {
+        // ... then grow the world.
         growWorld ( world );
     }
 
     return world->nextEntity++;
 }
 
+// Clear the Entity of any Components, leaving it available for reuse.
 void destroyEntity ( Entity e, World * world )
 {
     maskCopy ( world->mask[ e ], COMPONENT_NONE );
