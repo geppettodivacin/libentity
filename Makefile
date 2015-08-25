@@ -1,9 +1,13 @@
 CC=gcc
 EXECUTABLE=main
+LIBRARY=libentity.a
 OBJECTS=util.o mask.o world.o entity.o component.o system.o
 
 main: $(OBJECTS) main.c
 	$(CC) -Wall -g -o $(EXECUTABLE) $(OBJECTS) main.c
+
+library: $(OBJECTS)
+	ar -cvq $(LIBRARY) $(OBJECTS)
 
 util.o: util.c util.h
 	$(CC) -c -g -Wall util.c
@@ -27,4 +31,4 @@ run: main
 	./$(EXECUTABLE)
 
 clean:
-	rm -rf $(EXECUTABLE) $(OBJECTS)
+	rm -rf $(EXECUTABLE) $(OBJECTS) $(LIBRARY)
