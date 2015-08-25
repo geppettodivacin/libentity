@@ -24,26 +24,31 @@
 #include "entity.h"
 #include "component.h"
 
+// Query whether an Entity meets the Aspect requirements of a System.
 bool validInSystem ( const Aspect aspect, Entity e, World * world )
 {
     return maskSubset ( aspect, world->mask[ e ] );
 }
 
+// Set a Component into an Aspect.
 void setInAspect ( Aspect aspect, Component c )
 {
     maskOr ( aspect, aspect, c );
 }
 
+// Remove a Component from an Aspect.
 void removeFromAspect ( Aspect aspect, Component c )
 {
     maskNand ( aspect, aspect, c );
 }
 
+// Clear an Aspect of all Components.
 void clearAspect ( Aspect aspect )
 {
     maskCopy ( aspect, COMPONENT_NONE );
 }
 
+// Query whether an Aspect is empty.
 bool aspectIsEmpty ( Aspect aspect )
 {
     return maskEqual ( aspect, COMPONENT_NONE );
