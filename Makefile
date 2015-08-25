@@ -1,31 +1,34 @@
 CC=gcc
 EXECUTABLE=main
-LIBRARY=libentity.a
+LIBRARY=lib/libentity.a
+MAINLIBS=-L./lib -lentity
 OBJECTS=util.o mask.o world.o entity.o component.o system.o
+INCLUDEDIR=./include
 
-main: $(OBJECTS) main.c
-	$(CC) -Wall -g -o $(EXECUTABLE) $(OBJECTS) main.c
+main: library main.c
+	$(CC) -Wall -g -o $(EXECUTABLE) main.c -I $(INCLUDEDIR) $(MAINLIBS)
 
 library: $(OBJECTS)
+	mkdir -p lib
 	ar -cvq $(LIBRARY) $(OBJECTS)
 
-util.o: util.c util.h
-	$(CC) -c -g -Wall util.c
+util.o: src/util.c $(INCLUDEDIR)/util.h
+	$(CC) -c -g -Wall src/util.c -I $(INCLUDEDIR)
 
-mask.o: mask.c mask.h util.h
-	$(CC) -c -g -Wall mask.c
+mask.o: src/mask.c $(INCLUDEDIR)/mask.h $(INCLUDEDIR)/util.h
+	$(CC) -c -g -Wall src/mask.c -I $(INCLUDEDIR)
 
-world.o: world.c world.h entity.h mask.h component.h
-	$(CC) -c -g -Wall world.c
+world.o: src/world.c $(INCLUDEDIR)/world.h $(INCLUDEDIR)/entity.h $(INCLUDEDIR)/mask.h $(INCLUDEDIR)/component.h
+	$(CC) -c -g -Wall src/world.c -I $(INCLUDEDIR)
 
-entity.o: entity.c entity.h mask.h component.h world.h
-	$(CC) -c -g -Wall entity.c
+entity.o: src/entity.c $(INCLUDEDIR)/entity.h $(INCLUDEDIR)/mask.h $(INCLUDEDIR)/component.h $(INCLUDEDIR)/world.h
+	$(CC) -c -g -Wall src/entity.c -I $(INCLUDEDIR)
 
-component.o: component.c component.h entity.h mask.h util.h
-	$(CC) -c -g -Wall component.c
+component.o: src/component.c $(INCLUDEDIR)/component.h $(INCLUDEDIR)/entity.h $(INCLUDEDIR)/mask.h $(INCLUDEDIR)/util.h
+	$(CC) -c -g -Wall src/component.c -I $(INCLUDEDIR)
 
-system.o: system.c system.h util.h mask.h entity.h component.h
-	$(CC) -c -g -Wall system.c
+system.o: src/system.c $(INCLUDEDIR)/system.h $(INCLUDEDIR)/util.h $(INCLUDEDIR)/mask.h $(INCLUDEDIR)/entity.h $(INCLUDEDIR)/component.h
+	$(CC) -c -g -Wall src/system.c -I $(INCLUDEDIR)
 
 run: main
 	./$(EXECUTABLE)
