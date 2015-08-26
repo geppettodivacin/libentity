@@ -19,6 +19,7 @@
 #ifndef WORLD_H
 #define WORLD_H
 
+#include <stdlib.h>
 #include "mask.h"
 
 // the maximum number of entities possible without growing
