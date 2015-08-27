@@ -43,7 +43,7 @@ void addComponent ( Entity e, Component c, World * world );
 // Remove a Component from an Entity.
 void removeComponent ( Entity e, Component c, World * world );
 // Query whether an Entity has a given Component.
-bool hasComponent ( Entity e, Component c, World * world );
+boolean hasComponent ( Entity e, Component c, World * world );
 // Get a pointer to the Component for an Entity.
 void * getComponent ( Entity e, Component c, World * world );
 

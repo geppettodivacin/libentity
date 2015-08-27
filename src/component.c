@@ -109,7 +109,7 @@ void removeComponent ( Entity e, Component c, World * world )
 }
 
 // Query whether an Entity has a given Component.
-bool hasComponent ( Entity e, Component c, World * world )
+boolean hasComponent ( Entity e, Component c, World * world )
 {
     Mask result;
     Mask * entityMask = &world->mask[ e ];

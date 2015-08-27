@@ -31,9 +31,9 @@ void maskCopy ( Mask dest, const Mask src );
 // Get the binary complement of the source Mask.
 void maskNot ( Mask dest, const Mask src );
 // Test if two Masks are equal.
-bool maskEqual ( const Mask m, const Mask n );
+boolean maskEqual ( const Mask m, const Mask n );
 // Test whether the set bits of Mask m is a subset of Mask n.
-bool maskSubset ( const Mask m, const Mask n );
+boolean maskSubset ( const Mask m, const Mask n );
 // Perform a binary and operation on two Masks.
 void maskAnd ( Mask result, const Mask m, const Mask n );
 // Perform a binary nand operation on two Masks.

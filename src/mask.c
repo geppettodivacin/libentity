@@ -55,7 +55,7 @@ void maskNot ( Mask dest, const Mask src )
 }
 
 // Test if two Masks are equal.
-bool maskEqual ( const Mask m, const Mask n )
+boolean maskEqual ( const Mask m, const Mask n )
 {
     int i = 0;
 
@@ -69,7 +69,7 @@ bool maskEqual ( const Mask m, const Mask n )
 }
 
 // Test whether the set bits of Mask m is a subset of Mask n.
-bool maskSubset ( const Mask m, const Mask n )
+boolean maskSubset ( const Mask m, const Mask n )
 {
     int i = 0;
 

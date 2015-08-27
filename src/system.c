@@ -25,7 +25,7 @@
 #include "component.h"
 
 // Query whether an Entity meets the Aspect requirements of a System.
-bool validInSystem ( const Aspect aspect, Entity e, World * world )
+boolean validInSystem ( const Aspect aspect, Entity e, World * world )
 {
     return maskSubset ( aspect, world->mask[ e ] );
 }
@@ -49,7 +49,7 @@ void clearAspect ( Aspect aspect )
 }
 
 // Query whether an Aspect is empty.
-bool aspectIsEmpty ( Aspect aspect )
+boolean aspectIsEmpty ( Aspect aspect )
 {
     return maskEqual ( aspect, COMPONENT_NONE );
 }

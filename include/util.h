@@ -20,7 +20,7 @@
 #define UTIL_H
 
 // Define a boolean value, because C doesn't have that capability.
-typedef short bool;
+typedef short boolean;
 #define false   0
 #define true    1
 
